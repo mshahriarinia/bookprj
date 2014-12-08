@@ -1,6 +1,11 @@
 bookprj
 =======
 
+I have three modes:
+	test (mocha)
+	development
+	deployment
+
 Concepts:
 	User
 		messages
@@ -28,3 +33,4 @@ Actions
 		contact us
 		chat
 		signup sign in
+

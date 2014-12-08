@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    title= title
+  body
+    a(href="/") BookPrj
+    br
+    if (!user)
+      a(href="/auth/signin") Sign in
+      = ' '
+      a(href="/auth/signup") Sign up
+    if (user)
+      p You are currently logged in as #{user.username}
+      a(href="/auth/signout") Sign out
+    hr
+    block content

@@ -1,0 +1,18 @@
+extends ../layout
+
+block content
+  h1= title
+  ul
+    li
+      b= 'First Name:'
+      = user.firstName
+    li
+      b= 'Last Name: '
+      = user.lastName
+    li
+      b= 'Username: '
+      = user.username
+    li 
+      b= 'Email: '
+      = user.email
+  a(href="/") Edit
