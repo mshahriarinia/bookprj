@@ -41,7 +41,7 @@ console.log(req.body);
 				if (err) {
 					res.status(400).send(err);
 				} else {
-					//res.json(user); morteza
+					//res.json(user); //morteza
 					res.redirect('/users/me');
 				}
 			});
@@ -79,7 +79,9 @@ exports.signin = function(req, res, next) {
 					res.status(400).send(err);
 				} else {
 					console.log('Signin successful');
-					res.json(user);
+					//res.json(user); // morteza
+					res.redirect('/users/me');
+
 				}
 			});
 		}

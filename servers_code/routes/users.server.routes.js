@@ -9,6 +9,11 @@ module.exports = function(app) {
 	// User Routes
 	var users = require('../controllers/users.server.controller');
 
+	app.route('/').get(function(req, res) {
+	//	console.log(req);
+		res.render('index', { title: app.get('env'),  user: req.user });
+	});
+
 	// Setting up the users profile api
 	app.route('/users/me').get(users.me);
 	app.route('/users').put(users.update);

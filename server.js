@@ -9,6 +9,8 @@ var config = require('./config/config');
 var dbConnection = require('./servers_code/db');
 var app = require('./servers_code/app')(dbConnection);
 
+// Bootstrap passport config
+require('./config/passport')();
 
 //app.set('port', config.port);
 

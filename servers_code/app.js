@@ -25,7 +25,7 @@ module.exports = function(dbConnection){
     var multer  = require('multer') //Multer is a node.js middleware for handling multipart/form-data.
     var session=require('express-session')
     var MongoStore = require('connect-mongo')(session)
-    var passport= require('./auth')
+    var passport = require('passport');//require('./auth')
     var path = require('path');
     var logger = require('morgan');
     var cookieParser = require('cookie-parser');
@@ -51,10 +51,11 @@ module.exports = function(dbConnection){
         })  //can be separated to a settings file to make sure it is a parameter for 
     }))
 
+    // app.use(passport.initialize());
+    // app.use(passport.session()); //tell passport to use sessions in express. you can use passport without session (for non continous req/responses)
+
     app.use(passport.initialize());
-
-    app.use(passport.session()); //tell passport to use sessions in express. you can use passport without session (for non continous req/responses)
-
+    app.use(passport.session());
 
     app.use(bodyParser.json())
     app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
@@ -89,10 +90,10 @@ module.exports = function(dbConnection){
     //     res.render('login', {title: 'Log in'});
     // });
 
-    app.post('/auth/signin', passport.authenticate('local', {
-        failureRedirect: '/auth/signin',
-        successRedirect: '/users/me'
-    }));
+    // app.post('/auth/signin', passport.authenticate('local', {
+    //     failureRedirect: '/auth/signin',
+    //     successRedirect: '/users/me'
+    // }));
 
     // app.get('/user', function(req, res) {
     //     console.log('HERE:------------ /user')

@@ -54,16 +54,16 @@ exports.update = function(req, res) {
 exports.me = function(req, res) {
 	console.log('user me');
 	console.log(req.user);
-	//res.render('users/user', {title:'a user', user:req.user || null});
-	//	res.json(User.find(req.user) || null);
+	res.render('users/user', {title:'a user', user:req.user || null});
+//		res.json(User.find(req.user) || null);
 
-var username = req.user.username;
-User.findOne({username: username}, function(err, doc) {
-  //Do your action here..
-  console.log('found user');
-  console.log(doc);
-  res.render ('users/user', {title:'User Details', user:doc});
-});
+// var username = req.user.username;
+// User.findOne({username: username}, function(err, doc) {
+//   //Do your action here..
+//   console.log('found user');
+//   console.log(doc);
+//   res.render ('users/user', {title:'User Details', user:doc});
+//});
 
 
 

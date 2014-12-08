@@ -2,8 +2,9 @@
 
 /* GET home page. */
 module.exports = function(app) {
-	app.route('/')
+	app.route('/blabla')
 	.get(function(req, res) {
-		res.render('index', { title: app.get('env')});
+	//	console.log(req);
+		res.render('index', { title: app.get('env'),  user: req.user });
 	})
 }
