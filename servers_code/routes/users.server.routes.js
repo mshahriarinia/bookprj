@@ -5,6 +5,7 @@
  */
 var passport = require('passport');
 var config = require('../../config/config');
+var authorization = require('../controllers/users/users.authorization.server.controller');
 
 module.exports = function(app) {
 	// User Routes
@@ -24,13 +25,11 @@ module.exports = function(app) {
 // TODO make sure this route is authorization protected
  
 	app.route('/users/me').get(users.me);
-	//app.route('/users/:number').put(users.update
+	app.get('/users/admin', authorization.hasAuthorization(['admin']), function(req,res){
+		console.log('in admin');
+		res.json({admin:'user is admin'});
+	});
 
-	// 	function(req,res){
-	// 	console.log('/users/:number');
-	// 	res.json({});
-	// }
-	//);
 	app.route('/users').post(users.update); // TODO this should be a PUT request
 	
 	app.route('/users').get(function(req,res){
@@ -39,7 +38,7 @@ module.exports = function(app) {
 		res.render('users/update', {user:req.user});
 	}); // morteza
 
-	app.route('/users/accounts').delete(users.removeOAuthProvider); // ?
+	app.route('/users/accounts').delete(users.removeOAuthProvider); // ??????????????????
 
 	
 

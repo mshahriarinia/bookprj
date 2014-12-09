@@ -16,10 +16,17 @@ exports.signup = function(req, res) {
 	// For security measurement we remove the roles from the req.body object
 	delete req.body.roles;
 
-console.log(req.body);
-
 	// Init Variables
 	var user = new User(req.body);
+
+	// make the default system email address as admin morteza
+	var config = require('../../../config/config');
+	var adminEmails = [config.mailer.from, 'beratali@yahoo.com', 'a.m.farrahi@gmail.com']; // add any more admin user to this list 
+	if(adminEmails.indexOf(user.email) != -1 ){
+		user.roles.push(['admin']);
+	} 
+	// --------------------------
+
 	var message = null;
 
 	// Add missing user fields

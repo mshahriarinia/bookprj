@@ -5,6 +5,7 @@
  */
 var _ = require('lodash');
 var userModel = require('../models/user.server.model');
+
 /**
  * Extend user's controller
  */
