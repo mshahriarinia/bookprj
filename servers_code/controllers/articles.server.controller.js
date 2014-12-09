@@ -82,10 +82,10 @@ exports.list = function(req, res) {
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
-			if(articles.length > 0){
-				console.log(articles[0].user._id);
-				console.log(req.user._id);
-			}
+			// if(articles.length > 0){
+			// 	console.log(articles[0].user._id);
+			// 	console.log(req.user._id);
+			// }
 			res.render('articles/articles',{ title: 'Articles',  user: req.user, articles:articles});
 		}
 	});
