@@ -24,7 +24,7 @@ exports.create = function(req, res) {
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
-			res.render('articles/articles');
+			res.json({status:'Article successfully added.'});
 		}
 	});
 };
