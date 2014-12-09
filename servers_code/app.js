@@ -152,6 +152,15 @@ module.exports = function(dbConnection){
         });
     });
 
+//--------------------------- setup mailer
+    // var smtpTransport = nodemailer.createTransport("SMTP",{
+    //     service: "Gmail",
+    //     auth: {
+    //        user: "awesome.mail.ly@gmail.com",
+    //        pass: "test12345678"
+    //     }
+    // });
+    
 
     return app
     //module.exports = app;

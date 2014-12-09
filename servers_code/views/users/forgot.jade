@@ -1,0 +1,7 @@
+extends ../layout
+
+block content
+	h1= title
+	form(method='post')
+		input(name='username', class='input-block-level', placeholder='username')
+		input(type='submit', class='btn btn-primary', value='Reset Password')

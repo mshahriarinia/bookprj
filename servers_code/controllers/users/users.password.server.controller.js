@@ -43,7 +43,7 @@ exports.forgot = function(req, res, next) {
 						});
 					} else {
 						user.resetPasswordToken = token;
-						user.resetPasswordExpires = Date.now() + 3600000; // 1 hour
+						user.resetPasswordExpires = Date.now() + 3600000; // 1 hour 
 
 						user.save(function(err) {
 							done(err, token, user);
@@ -103,10 +103,10 @@ exports.validateResetToken = function(req, res) {
 		}
 	}, function(err, user) {
 		if (!user) {
-			return res.redirect('/#!/password/reset/invalid');
+			return res.redirect('/auth/password/reset/invalid');
 		}
 
-		res.redirect('/#!/password/reset/' + req.params.token);
+		res.redirect('/auth/password/reset/' + req.params.token);
 	});
 };
 
@@ -143,7 +143,8 @@ exports.reset = function(req, res, next) {
 										res.status(400).send(err);
 									} else {
 										// Return authenticated user 
-										res.json(user);
+										//res.json(user);
+										res.redirect('/users/me');
 
 										done(err, user);
 									}
