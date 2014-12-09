@@ -1,6 +1,12 @@
 bookprj
 =======
 
+To view heroku logs
+	$ heroku logs --tail
+To start localhost mongodb database
+	$ ./mongod --dbpath ../data/db
+
+
 I have three modes:
 	test (mocha)
 	development

@@ -6,6 +6,9 @@
 var users = require('../controllers/users.server.controller'),
 	articles = require('../controllers/articles.server.controller');
 
+var passport = require('passport');
+var authorization = require('../controllers/users/users.authorization.server.controller');
+
 module.exports = function(app) {
 	// Article Routes
 	app.route('/articles')

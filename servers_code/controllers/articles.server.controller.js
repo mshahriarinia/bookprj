@@ -8,6 +8,9 @@ var mongoose = require('mongoose'),
 	Article = mongoose.model('Article'),
 	_ = require('lodash');
 
+var passport = require('passport');
+
+
 /**
  * Create a article
  */
@@ -21,7 +24,7 @@ exports.create = function(req, res) {
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
-			res.json(article);
+			res.render('articles/articles');
 		}
 	});
 };
@@ -83,7 +86,7 @@ exports.list = function(req, res) {
 			console.log(articles[0].user._id);
 			console.log(req.user._id);
 		}
-			res.render('articles/articles',{articles:articles});
+			res.render('articles/articles',{ title: 'Articles',  user: req.user, articles:articles});
 		}
 	});
 };
