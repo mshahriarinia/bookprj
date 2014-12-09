@@ -21,13 +21,8 @@ block content
 				td
 					= article.user.displayName
 					if (user)
-						div(align='right') 
-						= 'Hi '
-						- var a = user.username 
-						a(href="/users/me") #{a}
-						= '!'
-						= ' '
-						a(href="/auth/signout") Sign out
+						if (user._id == article.user._id)
+							| (You posted this article)
 
 
 	p
