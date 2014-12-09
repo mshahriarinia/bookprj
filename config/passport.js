@@ -15,14 +15,11 @@ var passport = require('passport'),
 module.exports = function() {
 	// Serialize sessions
 	passport.serializeUser(function(user, done) {
-		console.log('serialize' + user.id);
 		done(null, user.id);
 	});
 
 	// Deserialize sessions
 	passport.deserializeUser(function(id, done) {
-		console.log('DEserialize' + id);
-
 		User.findOne({
 			_id: id
 		}, '-salt -password', function(err, user) {
@@ -35,5 +32,4 @@ module.exports = function() {
 	// 	require(path.resolve(strategy))();
 	// });
 	require('./strategies/local')();
-	//return passport;
 };

@@ -17,6 +17,11 @@ exports.update = function(req, res) {
 	var user = req.user;
 	var message = null;
 
+	//console.log('in update function' );
+	//console.log(req.query);
+	//	console.log(req.body);
+
+
 	// For security measurement we remove the roles from the req.body object
 	delete req.body.roles;
 
@@ -36,7 +41,7 @@ exports.update = function(req, res) {
 					if (err) {
 						res.status(400).send(err);
 					} else {
-						res.json(user);
+						res.redirect('/users/me');
 					}
 				});
 			}
@@ -53,8 +58,10 @@ exports.update = function(req, res) {
  */
 exports.me = function(req, res) {
 	console.log('user me');
-	console.log(req.user);
-	res.render('users/user', {title:'a user', user:req.user || null});
+	if(req.user)
+		res.render('users/user', {title:'User Details', user:req.user || null});
+	else 
+		res.redirect('/auth/signin');
 //		res.json(User.find(req.user) || null);
 
 // var username = req.user.username;

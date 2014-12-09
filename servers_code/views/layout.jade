@@ -3,14 +3,20 @@ html
   head
     title= title
   body
-    a(href="/") BookPrj
-    br
+    div(align='left') 
+      a(href="/") BookPrj
     if (!user)
-      a(href="/auth/signin") Sign in
-      = ' '
-      a(href="/auth/signup") Sign up
+      div(align='right') 
+        a(href="/auth/signin") Sign in
+        = ' '
+        a(href="/auth/signup") Sign up
     if (user)
-      p You are currently logged in as #{user.username}
-      a(href="/auth/signout") Sign out
+      div(align='right') 
+        = 'Hi '
+        - var a = user.username 
+        a(href="/users/me") #{a}
+        = '!'
+        = ' '
+        a(href="/auth/signout") Sign out
     hr
     block content

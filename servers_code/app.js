@@ -33,8 +33,7 @@ module.exports = function(dbConnection){
     var app = express();
 
 //application logic
-    require('./routes/index')(app);
-    require('./routes/books')(app);
+
 
 
 
@@ -111,7 +110,9 @@ module.exports = function(dbConnection){
    // app.use('/flights', routes);
    // 
    require('./routes/books')(app);
-   require('./routes/index')(app);
+  // require('./routes/index')(app);
+       require('./routes/about')(app);
+
    var u = require('./routes/users.server.routes')(app);
 
 
