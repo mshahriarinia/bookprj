@@ -34,3 +34,4 @@ Actions
 		chat
 		signup sign in
 
+debug
