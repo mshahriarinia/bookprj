@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-	db: '  mongodb://awesome.mail.ly:test12345678@ds063140.mongolab.com:63140/books',
+	db: 'mongodb://awesome.mail.ly:test12345678@ds063140.mongolab.com:63140/books',
 	app: {
 		title: 'Free Shipping Used Books(TM)'
 	},
