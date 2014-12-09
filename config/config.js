@@ -2,6 +2,7 @@
 
 var _ = require('lodash');
 var chalk = require('chalk');
+var fs = require('fs');
 
 // set env filename
 if (typeof process.env.NODE_ENV === 'undefined') {
