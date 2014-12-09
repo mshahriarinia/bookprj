@@ -21,7 +21,7 @@ exports.signup = function(req, res) {
 
 	// make the default system email address as admin morteza
 	var config = require('../../../config/config');
-	var adminEmails = [config.mailer.from, 'beratali@yahoo.com', 'a.m.farrahi@gmail.com']; // add any more admin user to this list 
+	var adminEmails = config.mailer.admins; // add any more admin user to this list 
 	if(adminEmails.indexOf(user.email) != -1 ){
 		user.roles.push(['admin']);
 	} 

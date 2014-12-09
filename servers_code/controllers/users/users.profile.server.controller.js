@@ -57,7 +57,6 @@ exports.update = function(req, res) {
  * Send User
  */
 exports.me = function(req, res) {
-	console.log('user me');
 	if(req.user)
 		res.render('users/user', {title:'User Details', user:req.user || null});
 	else 

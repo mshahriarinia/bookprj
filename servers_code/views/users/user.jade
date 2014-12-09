@@ -16,3 +16,6 @@ block content
       b= 'Email: '
       = user.email
   a(href="/users") Edit
+  p
+  - if (user.roles.indexOf('admin')!=-1)
+      a(href="/users/admin") Admin Panel

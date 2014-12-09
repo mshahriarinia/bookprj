@@ -17,6 +17,7 @@ module.exports = {
 	},
 	mailer: {
 		from: process.env.MAILER_FROM || 'awesome.mail.ly@gmail.com',
+		admins: [process.env.MAILER_FROM || 'awesome.mail.ly@gmail.com', 'beratali@yahoo.com', 'a.m.farrahi@gmail.com' ],
 		options: {
 			service: process.env.MAILER_SERVICE_PROVIDER || 'gmail.com',
 			auth: {
