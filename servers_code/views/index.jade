@@ -3,4 +3,6 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
-  This page doesn't need login and doesn't show it. Here you can find more detail about our site.
+  | Make sure you browse our list of latest articles
+  p
+    a(href='/articles') Browse List of articles

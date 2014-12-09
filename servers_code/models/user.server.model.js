@@ -29,6 +29,7 @@ var mongoose = require('mongoose'),
 	Schema = mongoose.Schema,
 	crypto = require('crypto');
 
+var articleModel = require('../models/article.server.model'); // initialize the model morteza
 /**
  * A Validation function for local strategy properties
  */

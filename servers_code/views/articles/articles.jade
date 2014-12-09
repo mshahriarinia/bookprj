@@ -1,0 +1,34 @@
+extends ../layout
+
+block content
+	p
+		| Here is the list of articles:
+	table(border="1px")
+		tr
+			td
+				| Price
+			td
+				| Title
+			td
+				| Content
+			td
+				| User
+		each article, index in articles
+			tr
+				td= article.price
+				td= article.title
+				td= article.content
+				td
+					= article.user.displayName
+					if (user)
+						div(align='right') 
+						= 'Hi '
+						- var a = user.username 
+						a(href="/users/me") #{a}
+						= '!'
+						= ' '
+						a(href="/auth/signout") Sign out
+
+
+	p
+	a(href='/articles/create') Create a new article

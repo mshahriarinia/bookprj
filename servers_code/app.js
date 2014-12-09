@@ -110,10 +110,12 @@ module.exports = function(dbConnection){
    // app.use('/flights', routes);
    // 
    require('./routes/books')(app);
-  // require('./routes/index')(app);
-       require('./routes/about')(app);
+   require('./routes/articles.server.routes')(app);
 
-   var u = require('./routes/users.server.routes')(app);
+    // require('./routes/index')(app);
+    require('./routes/about')(app);
+
+    var u = require('./routes/users.server.routes')(app);
 
 
     app.get('/*', function(req, res) {
